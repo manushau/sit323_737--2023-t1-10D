@@ -75,7 +75,7 @@
     "vary": "^1.1.2"
   },
   "scripts": {
-    "test": "mocha chai"
+    "test": "mocha test.js --exit"
   },
   "keywords": [],
   "author": "",

@@ -41,6 +41,6 @@ describe('Password Strength Checker', () => {
         done();
       });
   });
-  after(() => process.exit(0));
+  // after(() => process.exit(0));
 
 });
