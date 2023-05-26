@@ -1,15 +1,17 @@
 {
-  "name": "myapp",
+  "name": "sit323_737--2023-t1-10d",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+  "dependencies": {
+    "chai-http": "^4.3.0"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "mocha test.js --exit"
+    "test": "mocha test.js --exit",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "chai-http": "^4.3.0"
-  }
+  "license": "ISC"
 }
