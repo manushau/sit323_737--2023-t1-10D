@@ -11,7 +11,7 @@
     "mocha": "^9.2.2"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "mocha test.js --exit",
     "start": "node server.js"
   },
   "keywords": [],
