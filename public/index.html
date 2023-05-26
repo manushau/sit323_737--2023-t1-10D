@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Password Strength Checker</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.password-hint {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #666;
+}
+
+.password-hint ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.password-hint li {
+  margin-bottom: 5px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: #45a049;
+}
+
+.result {
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Password Strength Checker</h2>
+    <div class="input-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" />
+      <div class="password-hint">
+        <strong>Password requirements:</strong>
+        <ul>
+          <li>At least 6 characters</li>
+          <li>At least 1 uppercase letter</li>
+          <li>At least 1 lowercase letter</li>
+          <li>At least 1 digit</li>
+          <li>At least 1 symbol</li>
+        </ul>
+      </div>
+    </div>
+    <button onclick="checkPassword()">Check Strength</button>
+    <div class="result" id="result"></div>
+
+    <script>
+      function checkPassword() {
+        const password = document.getElementById('password').value;
+
+        fetch('/check-password', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ password })
+        })
+          .then(response => response.json())
+          .then(data => {
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = `Password Strength: ${data.strength}`;
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      }
+    </script>
+  </div>
+</body>
+</html>
