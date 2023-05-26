@@ -10,11 +10,14 @@ COPY package*.json ./
 # Install the project dependencies
 RUN npm install
 
+# Install mocha as a global package
+RUN npm install -g mocha
+
 # Copy the application files to the container
 COPY . .
 
 # Expose the port that the application will be running on
 EXPOSE 8080
 
-# Start the application
-CMD ["node", "calculator.js"]
+# Run the tests using mocha
+CMD ["npm", "test"]
