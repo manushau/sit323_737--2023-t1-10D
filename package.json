@@ -4,9 +4,12 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "chai": "^4.3.7",
     "chai-http": "^4.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^9.2.2"
+  },
   "scripts": {
     "test": "mocha test.js --exit",
     "start": "node server.js"
