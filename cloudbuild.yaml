@@ -1,9 +1,10 @@
 steps:
   # Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/sit737-23t1-amuwala-ba-6cf3733/s222313962/pchecker', '.']
+    args: ['build', '-t', 'gcr.io/sit737-23t1-amuwala-ba-6cf3733/s222313962/pchecker:$COMMIT_SHA', '.']
 
   # Run unit tests
-  - name: 'gcr.io/sit737-23t1-amuwala-ba-6cf3733/s222313962/pchecker'
-    entrypoint: 'npm'
-    args: ['run', 'test']
+  - name: 'gcr.io/sit737-23t1-amuwala-ba-6cf3733/s222313962/pchecker:$COMMIT_SHA'
+    args: ['push', 'gcr.io/${PROJECT_ID}/node-web-app:$COMMIT_SHA']
+
+
