@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "chai": "^4.3.7",
-    "chai-http": "^4.3.0"
+    "chai-http": "^4.3.0",
+    "push": "^0.0.1"
   }
 }
