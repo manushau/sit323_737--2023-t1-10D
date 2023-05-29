@@ -4,6 +4,10 @@ steps:
     args: ['build', '-t', 'gcr.io/sit737-23t1-amuwala-ba-6cf3733/s222313962/pchecker:$COMMIT_SHA', '.']
 
   # Run unit tests
+  - name: 'gcr.io/sit737-23t1-amuwala-ba-6cf3733/s222313962/pchecker'
+    entrypoint: 'npm'
+    args: ['run', 'test']
+
   - name: 'gcr.io/sit737-23t1-amuwala-ba-6cf3733/s222313962/pchecker:$COMMIT_SHA'
     args: ['push', 'gcr.io/sit737-23t1-amuwala-ba-6cf3733/s222313962/pchecker:$COMMIT_SHA']
 
@@ -12,3 +16,6 @@ steps:
     env:
     - 'CLOUDSDK_COMPUTE_ZONE=australia-southeast2-a'
     - 'CLOUDSDK_CONTAINER_CLUSTER=hello-cluster'
+
+
+
