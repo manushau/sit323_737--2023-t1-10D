@@ -20,4 +20,4 @@ COPY . .
 EXPOSE 8080
 
 # Run the tests using mocha
-CMD ["npm", "test"]
+CMD [ "node", "server.js" ]

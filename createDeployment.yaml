@@ -6,7 +6,7 @@ metadata:
     app: myapp
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       tier: frontend
@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: pchecker
-        image: gcr.io/sit737-23t1-amuwala-ba-6cf3733/s222313962/pchecker
+        image: gcr.io/sit737-23t1-amuwala-ba-6cf3733/s222313962/pchecker:latest
         ports:
         - containerPort: 8080

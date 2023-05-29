@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const port = 8080;
 // Parse JSON bodies
 app.use(express.json());
 
@@ -47,8 +47,8 @@ function checkPasswordStrength(password) {
 }
 
 // Start the server
-app.listen(8080, () => {
-  console.log('Server started on port 3000');
+app.listen(port, () => {
+  console.log(`Calculator app listening at http://localhost:${port}`);
 });
 
 module.exports = app;
