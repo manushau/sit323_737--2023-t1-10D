@@ -7,8 +7,8 @@ steps:
   - name: 'gcr.io/sit737-23t1-amuwala-ba-6cf3733/s222313962/pchecker:$COMMIT_SHA'
     args: ['push', 'gcr.io/sit737-23t1-amuwala-ba-6cf3733/s222313962/pchecker:$COMMIT_SHA']
 
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment/mydeployment', 'pchecker=gcr.io/sit737-23t1-amuwala-ba-6cf3733/s222313962/pchecker:$COMMIT_SHA']
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=australia-southeast2-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=hello-cluster'
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['set', 'image', 'deployment/mydeployment', 'pchecker=gcr.io/sit737-23t1-amuwala-ba-6cf3733/s222313962/pchecker:$COMMIT_SHA']
+    env:
+    - 'CLOUDSDK_COMPUTE_ZONE=australia-southeast2-a'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=hello-cluster'
